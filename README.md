@@ -1,36 +1,7 @@
-## A Note from the Author (acdlite, Oct 25 2018):
-
-Hi! I created Recompose about three years ago. About a year after that, I joined the React team. Today, we announced a proposal for [*Hooks*](https://reactjs.org/hooks). Hooks solves all the problems I attempted to address with Recompose three years ago, and more on top of that. I will be discontinuing active maintenance of this package (excluding perhaps bugfixes or patches for compatibility with future React releases), and recommending that people use Hooks instead. **Your existing code with Recompose will still work**, just don't expect any new features. Thank you so, so much to [@wuct](https://github.com/wuct) and [@istarkov](https://github.com/istarkov) for their heroic work maintaining Recompose over the last few years.
-
-Read more discussion about this decision [here](https://github.com/acdlite/recompose/issues/756#issuecomment-438674573).
-
-***
-
-Recompose
------
-
-[![build status](https://img.shields.io/travis/acdlite/recompose/master.svg?style=flat-square)](https://travis-ci.org/acdlite/recompose)
-[![coverage](https://img.shields.io/codecov/c/github/acdlite/recompose.svg?style=flat-square)](https://codecov.io/github/acdlite/recompose)
-[![code climate](https://img.shields.io/codeclimate/github/acdlite/recompose.svg?style=flat-square)](https://codeclimate.com/github/acdlite/recompose)
-[![npm version](https://img.shields.io/npm/v/recompose.svg?style=flat-square)](https://www.npmjs.com/package/recompose)
-[![npm downloads](https://img.shields.io/npm/dm/recompose.svg?style=flat-square)](https://www.npmjs.com/package/recompose)
-
-Recompose is a React utility belt for function components and higher-order components. Think of it like lodash for React.
-
-[**Full API documentation**](docs/API.md) - Learn about each helper
-
-[**Recompose Base Fiddle**](https://jsfiddle.net/evenchange4/p3vsmrvo/1599/) - Easy way to dive in
 
 ```
 npm install recompose --save
 ```
-
-**📺 Watch Andrew's [talk on Recompose at React Europe](https://www.youtube.com/watch?v=zD_judE-bXk).**
-*(Note: Performance optimizations he speaks about have been removed, more info [here](https://github.com/acdlite/recompose/releases/tag/v0.26.0))*
-
-### Related modules
-
-[**recompose-relay**](src/packages/recompose-relay) — Recompose helpers for Relay
 
 ## You can use Recompose to...
 
@@ -159,22 +130,6 @@ import toClass from 'recompose/toClass'
 const ClassComponent = toClass(FunctionComponent)
 ```
 
-### ...and more
-
-## API docs
-
-[Read them here](docs/API.md)
-
-## Flow support
-
-[Read the docs](docs/flow.md)
-
-## Translation
-
-[Traditional Chinese](https://github.com/neighborhood999/recompose)
-
-## Why
-
 Forget ES6 classes vs. `createClass()`.
 
 An idiomatic React application consists mostly of function components.
@@ -185,26 +140,6 @@ const Greeting = props =>
     Hello, {props.name}!
   </p>
 ```
-
-Function components have several key advantages:
-
-- They help prevent abuse of the `setState()` API, favoring props instead.
-- They encourage the ["smart" vs. "dumb" component pattern](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
-- They encourage code that is more reusable and modular.
-- They discourage giant, complicated components that do too many things.
-- They allow React to make performance optimizations by avoiding unnecessary checks and memory allocations.
-
-(Note that although Recompose encourages the use of function components whenever possible, it works with normal React components as well.)
-
-### Higher-order components made easy
-
-Most of the time when we talk about composition in React, we're talking about composition of components. For example, a `<Blog>` component may be composed of many `<Post>` components, which are composed of many `<Comment>` components.
-
-Recompose focuses on another unit of composition: **higher-order components** (HoCs). HoCs are functions that accept a base component and return a new component with additional functionality. They can be used to abstract common tasks into reusable pieces.
-
-Recompose provides a toolkit of helper functions for creating higher-order components.
-
-## [Should I use this? Performance and other concerns](docs/performance.md)
 
 ## Usage
 
@@ -303,30 +238,3 @@ const enhance = compose(
 )
 ```
 
-
-## Who uses Recompose
-If your company or project uses Recompose, feel free to add it to [the official list of users](https://github.com/acdlite/recompose/wiki/Sites-Using-Recompose) by [editing](https://github.com/acdlite/recompose/wiki/Sites-Using-Recompose/_edit) the wiki page.
-
-## Recipes for Inspiration
-We have a community-driven Recipes page. It's a place to share and see recompose patterns for inspiration. Please add to it! [Recipes](https://github.com/acdlite/recompose/wiki/Recipes).
-
-## Feedback wanted
-
-Project is still in the early stages. Please file an issue or submit a PR if you have suggestions! Or ping me (Andrew Clark) on [Twitter](https://twitter.com/acdlite).
-
-
-## Getting Help
-
-**For support or usage questions like “how do I do X with Recompose” and “my code doesn't work”, please search and ask on [StackOverflow with a Recompose tag](http://stackoverflow.com/questions/tagged/recompose?sort=votes&pageSize=50) first.**
-
-We ask you to do this because StackOverflow has a much better job at keeping popular questions visible. Unfortunately good answers get lost and outdated on GitHub.
-
-Some questions take a long time to get an answer. **If your question gets closed or you don't get a reply on StackOverflow for longer than a few days,** we encourage you to post an issue linking to your question. We will close your issue but this will give people watching the repo an opportunity to see your question and reply to it on StackOverflow if they know the answer.
-
-Please be considerate when doing this as this is not the primary purpose of the issue tracker.
-
-### Help Us Help You
-
-On both websites, it is a good idea to structure your code and question in a way that is easy to read to entice people to answer it. For example, we encourage you to use syntax highlighting, indentation, and split text in paragraphs.
-
-Please keep in mind that people spend their free time trying to help you. You can make it easier for them if you provide versions of the relevant libraries and a runnable small project reproducing your issue. You can put your code on [JSBin](http://jsbin.com) or, for bigger projects, on GitHub. Make sure all the necessary dependencies are declared in `package.json` so anyone can run `npm install && npm start` and reproduce your issue.
